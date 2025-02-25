@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import Navbar from "./components/Navbar";
+import MainContent from "./components/MainContent";
+import Sidebar from "./components/Sidebar"; // Import the Sidebar component
+import "./index.css";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`dashboard ${isSidebarOpen ? 'sidebar-open' : ''}`}> {/* Add conditional class */}
+      <Navbar toggleSidebar={toggleSidebar} /> {/* Pass toggleSidebar to Navbar */}
+      <div className="container">
+        <Sidebar isOpen={isSidebarOpen} />
+        <MainContent />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
