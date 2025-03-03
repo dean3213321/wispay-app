@@ -7,13 +7,13 @@ const Sidebar = ({ isOpen }) => {
     <div className={`sidebar ${isOpen ? "open" : ""}`}>
       <ul>
         <li>
-          <a href="#">
+          <a href="/">
             <i className="bi bi-speedometer2"></i>
             <span>Dashboard</span>
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="Payments">
             <i className="bi bi-cash-stack"></i> {/* Changed icon */}
             <span>Payments</span>
           </a>
